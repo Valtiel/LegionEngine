@@ -18,7 +18,12 @@ public class PositionSystem implements SubSystem {
 	public void update(float delta) {
 		// TODO Auto-generated method stub
 		for(Position2D p: positionComponents){
-			Gdx.app.log(PositionSystem.class.getSimpleName(), p.toString());
+			//Gdx.app.log(PositionSystem.class.getSimpleName(), p.toString());
+			if(p.x>=800){
+				p.x=0;
+			}
+			p.x+=1;
+			
 		}
 	}
 

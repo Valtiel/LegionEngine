@@ -3,12 +3,16 @@ package com.ve.cesarrosales.entitysystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import com.ve.cesarrosales.entitysystem.component.*;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
+import com.ve.cesarrosales.entitysystem.component.*;
 import com.ve.cesarrosales.entitysystem.subsystem.*;
+import com.ve.cesarrosales.utils.Assets;
+import com.ve.cesarrosales.utils.Constants;
 
 public class BasicWorld implements World {
-
+	public static String TAG=BasicWorld.class.getName();
 	private static volatile BasicWorld _INSTANCE = null;
 	private List<SubSystem> subSystemList;
 	public EntityManager entityManager;
@@ -50,10 +54,12 @@ public class BasicWorld implements World {
 		UUID entity;
 		for(int i=0 ; i<30; i++){
 			entity = entityManager.createEntity();
-			entityManager.addComponent(entity,new Position2D(0,i));
+			float x=MathUtils.random(0, Constants.VIRTUAL_WIDTH);
+			float y=MathUtils.random(0, Constants.VIRTUAL_HEIGHT);		
+			Gdx.app.log(TAG, "Position: "+x+":"+y);
+			entityManager.addComponent(entity,new Position2D(x,y));
+			entityManager.addComponent(entity, new SpriteComponent(Assets.instance.stEnemy.stEnemy));
 		}
-		
-		
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import com.ve.cesarrosales.ExtendedGame;
 import com.ve.cesarrosales.entitysystem.BasicWorld;
 import com.ve.cesarrosales.entitysystem.World;
 import com.ve.cesarrosales.entitysystem.subsystem.PositionSystem;
+import com.ve.cesarrosales.entitysystem.subsystem.RenderSystem;
 
 public class TestScreen extends GameScreen {
 	
@@ -16,6 +17,7 @@ public class TestScreen extends GameScreen {
 		super(game);
 		world = BasicWorld.getInstance();
 		world.addSubSystem(new PositionSystem());
+		world.addSubSystem(new RenderSystem());
 		world.initSystems();
 	}
 
