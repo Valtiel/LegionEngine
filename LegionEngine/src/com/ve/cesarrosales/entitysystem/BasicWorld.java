@@ -54,11 +54,11 @@ public class BasicWorld implements World {
 		UUID entity;
 		for(int i=0 ; i<30; i++){
 			entity = entityManager.createEntity();
-			float x=MathUtils.random(0, Constants.VIRTUAL_WIDTH);
-			float y=MathUtils.random(0, Constants.VIRTUAL_HEIGHT);		
+			float x=MathUtils.random(-400f,400f );
+			float y=MathUtils.random(-240f,240f );		
 			Gdx.app.log(TAG, "Position: "+x+":"+y);
 			entityManager.addComponent(entity,new Position2D(x,y));
-			entityManager.addComponent(entity, new SpriteComponent(Assets.instance.stEnemy.stEnemy));
+			entityManager.addComponent(entity, new SpriteComponent(Assets.instance.player.player));
 		}
 	}
 

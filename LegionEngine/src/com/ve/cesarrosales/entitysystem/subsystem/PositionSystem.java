@@ -12,17 +12,15 @@ public class PositionSystem implements SubSystem {
 	private EntityManager entityManager;
 	Collection<Position2D> positionComponents;
 	
-	
-	
 	@Override
 	public void update(float delta) {
 		// TODO Auto-generated method stub
 		for(Position2D p: positionComponents){
 			//Gdx.app.log(PositionSystem.class.getSimpleName(), p.toString());
-			if(p.x>=800){
-				p.x=0;
+			if(p.vector.x>=400){
+				p.vector.x=-400;
 			}
-			p.x+=1;
+			p.vector.x+=1;
 			
 		}
 	}

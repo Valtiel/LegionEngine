@@ -6,10 +6,10 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class Main {
 	public static void main(String[] args) {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "LegionEngine";
+		cfg.title = "LegionEngineWVirtualViewport";
 		cfg.useGL20 = true;
 		cfg.width = 800;
-		cfg.height = 600;
+		cfg.height = 480;
 		
 		new LwjglApplication(new GameMainClass(), cfg);
 	}
