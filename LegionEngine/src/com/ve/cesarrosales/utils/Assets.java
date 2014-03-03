@@ -56,16 +56,16 @@ public class Assets implements Disposable, AssetErrorListener {
 	}
 
 	public class AssetPlayer {
-		public final AtlasRegion player;
+		public final AtlasRegion sprite;
 		public AssetPlayer(TextureAtlas atlas){
-			player=atlas.findRegion("player");
+			sprite=atlas.findRegion("player");
 		}
 	}
 	
 	public class AssetStEnemy {
 		public final AtlasRegion sprite;
 		public AssetStEnemy(TextureAtlas atlas){
-			sprite=atlas.findRegion("enemy");
+			sprite=atlas.findRegion("enemyShip");
 		}
 	}
 }

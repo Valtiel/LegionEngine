@@ -6,7 +6,8 @@ import java.util.List;
 import com.ve.cesarrosales.entitysystem.subsystem.*;
 
 public class BasicWorld implements World {
-	public static String TAG=BasicWorld.class.getName();
+	
+	public static String TAG = BasicWorld.class.getName();
 	private static volatile BasicWorld _INSTANCE = null;
 	private List<SubSystem> subSystemList;
 	public EntityManager entityManager;
@@ -35,7 +36,6 @@ public class BasicWorld implements World {
 	@Override
 	public void addSubSystem(SubSystem subsystem) {
 		// TODO Auto-generated method stub
-		
 		subSystemList.add(subsystem);
 		subsystem.setWorld(this);
 	}
@@ -45,10 +45,7 @@ public class BasicWorld implements World {
 		// TODO Auto-generated method stub
 		subSystemList=new ArrayList<SubSystem>();
 		entityManager = new EntityManager();
-		//UUID entity;
-		//for(int i=0 ; i<30; i++){
-			//EntityFactory.getInstance().createRandomStandardEnemy(entityManager);
-		//}
+		EntityFactory.getInstance().createPlayer(entityManager);
 	}
 
 	@Override
@@ -75,5 +72,4 @@ public class BasicWorld implements World {
 			s.init();
 		}
 	}
-	
 }

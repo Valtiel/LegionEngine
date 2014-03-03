@@ -1,0 +1,75 @@
+
+spacepack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+backgroundColor
+  rotate: false
+  xy: 1, 101
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 153, 100
+  size: 118, 151
+  orig: 118, 151
+  offset: 0, 0
+  index: -1
+meteorBig
+  rotate: false
+  xy: 273, 140
+  size: 136, 111
+  orig: 136, 111
+  offset: 0, 0
+  index: -1
+enemyUFO
+  rotate: false
+  xy: 1, 8
+  size: 91, 91
+  orig: 91, 91
+  offset: 0, 0
+  index: -1
+player
+  rotate: false
+  xy: 411, 152
+  size: 75, 99
+  orig: 75, 99
+  offset: 0, 0
+  index: -1
+enemyShip
+  rotate: false
+  xy: 94, 1
+  size: 50, 98
+  orig: 50, 98
+  offset: 0, 0
+  index: -1
+meteorSmall
+  rotate: false
+  xy: 273, 96
+  size: 44, 42
+  orig: 44, 42
+  offset: 0, 0
+  index: -1
+starBig
+  rotate: false
+  xy: 488, 230
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+life
+  rotate: false
+  xy: 319, 111
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+starSmall
+  rotate: false
+  xy: 488, 217
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1

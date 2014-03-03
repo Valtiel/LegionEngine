@@ -7,7 +7,6 @@ import com.ve.cesarrosales.ExtendedGame;
 import com.ve.cesarrosales.entitysystem.BasicWorld;
 import com.ve.cesarrosales.entitysystem.World;
 import com.ve.cesarrosales.entitysystem.subsystem.EnemiesControllerSystem;
-import com.ve.cesarrosales.entitysystem.subsystem.PositionSystem;
 import com.ve.cesarrosales.entitysystem.subsystem.RenderSystem;
 
 public class TestScreen extends GameScreen {

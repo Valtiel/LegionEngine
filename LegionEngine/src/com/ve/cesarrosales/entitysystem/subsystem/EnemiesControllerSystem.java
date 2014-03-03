@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.Task;
 import com.ve.cesarrosales.entitysystem.EntityFactory;
 import com.ve.cesarrosales.entitysystem.EntityManager;
 import com.ve.cesarrosales.entitysystem.World;
@@ -16,8 +18,10 @@ import com.ve.cesarrosales.entitysystem.component.Velocity;
 import com.ve.cesarrosales.utils.Constants;
 
 public class EnemiesControllerSystem implements SubSystem {
+	
 	private World world;
 	private EntityManager entityManager;
+	private Timer timer;
 	//private Collection<UUID> entitiesList;
 
 	@Override
@@ -28,16 +32,10 @@ public class EnemiesControllerSystem implements SubSystem {
 		manageEnemies(entitiesList, delta);
 	}
 
-
 	private void manageEnemies(Collection<UUID> list, float delta) {
 		// TODO Auto-generated method stub
 		List<UUID> toRemove=new ArrayList<UUID>();
-		if (list.size() <= 10) {
-			if (MathUtils.random(0, 10) == 1) {
-				EntityFactory.getInstance().createRandomStandardEnemy(
-						entityManager);
-			}
-		}
+
 		for (Iterator<UUID> it = list.iterator(); it.hasNext();) {
 			  UUID id = it.next();
 			  Position2D p = entityManager.getComponent(id, Position2D.class);
@@ -45,7 +43,6 @@ public class EnemiesControllerSystem implements SubSystem {
 				p.vector.add(v.vector.x * delta, v.vector.y * delta);
 				if (p.vector.x <= -Constants.VIRTUAL_WIDTH_MAX / 2) {
 					toRemove.add(id);
-					//it.remove();
 				}
 		}
 		for(UUID id: toRemove){
@@ -69,7 +66,22 @@ public class EnemiesControllerSystem implements SubSystem {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-
+		setTimer();
 	}
 
+	private void setTimer() {
+		// TODO Auto-generated method stub
+		timer= new Timer();
+		timer.scheduleTask(new Task() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+					EntityFactory.getInstance().createRandomStandardEnemy(
+							entityManager);
+					//Gdx.app.log("ASDASD", "ASDASD");
+					setTimer();
+			}
+		}, MathUtils.random(0.5f,2f));
+		timer.start();
+	}
 }
