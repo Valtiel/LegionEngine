@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL10;
 import com.ve.cesarrosales.ExtendedGame;
 import com.ve.cesarrosales.entitysystem.BasicWorld;
 import com.ve.cesarrosales.entitysystem.World;
+import com.ve.cesarrosales.entitysystem.subsystem.EnemiesControllerSystem;
 import com.ve.cesarrosales.entitysystem.subsystem.PositionSystem;
 import com.ve.cesarrosales.entitysystem.subsystem.RenderSystem;
 
@@ -16,7 +17,7 @@ public class TestScreen extends GameScreen {
 	public TestScreen(ExtendedGame game) {
 		super(game);
 		world = BasicWorld.getInstance();
-		world.addSubSystem(new PositionSystem());
+		world.addSubSystem(new EnemiesControllerSystem());
 		world.addSubSystem(new RenderSystem());
 		world.initSystems();
 	}

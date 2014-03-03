@@ -50,8 +50,8 @@ public class RenderSystem implements SubSystem, Resizable{
 		maximumAreaSprite.draw(batch);  
         minimumAreaSprite.draw(batch);  
         floatingButtonSprite.draw(batch);  
-        font.draw(batch, String.format("%1$sx%2$s", Gdx.graphics.getWidth(), Gdx.graphics.getHeight()), -20, 0);  
-
+        font.draw(batch, Gdx.graphics.getWidth() +"x"+ Gdx.graphics.getHeight(), -20, 0);  
+		entitiesList=entityManager.getAllEntitiesPossessingComponent(SpriteComponent.class);
 		for(UUID id: entitiesList){
 			Position2D position = entityManager.getComponent(id, Position2D.class);
 			SpriteComponent sprite = entityManager.getComponent(id, SpriteComponent.class);
@@ -80,7 +80,7 @@ public class RenderSystem implements SubSystem, Resizable{
 		// TODO Auto-generated method stub
 		batch = new SpriteBatch();
 		sp = new ShapeRenderer();
-		multipleVirtualViewportBuilder = new MultipleVirtualViewportBuilder(800, 480, 854, 600);  
+		multipleVirtualViewportBuilder = new MultipleVirtualViewportBuilder(Constants.VIRTUAL_WIDTH_MIN, Constants.VIRTUAL_HEIGHT_MIN, Constants.VIRTUAL_WIDTH_MAX, Constants.VIRTUAL_HEIGHT_MAX);  
         VirtualViewport virtualViewport = multipleVirtualViewportBuilder.getVirtualViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());  
           
         camera = new OrthographicCameraWithVirtualViewport(virtualViewport);  
@@ -89,7 +89,6 @@ public class RenderSystem implements SubSystem, Resizable{
 		camera.setToOrtho(false);
 		//camera.scale = screen.width / 25
 		camera.update();
-		entitiesList=entityManager.getAllEntitiesPossessingComponent(SpriteComponent.class);
 	        
         Pixmap pixmap = new Pixmap(64, 64, Format.RGBA8888);  
         pixmap.setColor(Color.WHITE);  

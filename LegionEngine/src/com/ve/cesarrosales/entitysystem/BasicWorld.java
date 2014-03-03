@@ -2,14 +2,8 @@ package com.ve.cesarrosales.entitysystem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
-import com.ve.cesarrosales.entitysystem.component.*;
 import com.ve.cesarrosales.entitysystem.subsystem.*;
-import com.ve.cesarrosales.utils.Assets;
-import com.ve.cesarrosales.utils.Constants;
 
 public class BasicWorld implements World {
 	public static String TAG=BasicWorld.class.getName();
@@ -51,15 +45,10 @@ public class BasicWorld implements World {
 		// TODO Auto-generated method stub
 		subSystemList=new ArrayList<SubSystem>();
 		entityManager = new EntityManager();
-		UUID entity;
-		for(int i=0 ; i<30; i++){
-			entity = entityManager.createEntity();
-			float x=MathUtils.random(-400f,400f );
-			float y=MathUtils.random(-240f,240f );		
-			Gdx.app.log(TAG, "Position: "+x+":"+y);
-			entityManager.addComponent(entity,new Position2D(x,y));
-			entityManager.addComponent(entity, new SpriteComponent(Assets.instance.player.player));
-		}
+		//UUID entity;
+		//for(int i=0 ; i<30; i++){
+			//EntityFactory.getInstance().createRandomStandardEnemy(entityManager);
+		//}
 	}
 
 	@Override

@@ -63,9 +63,9 @@ public class Assets implements Disposable, AssetErrorListener {
 	}
 	
 	public class AssetStEnemy {
-		public final AtlasRegion stEnemy;
+		public final AtlasRegion sprite;
 		public AssetStEnemy(TextureAtlas atlas){
-			stEnemy=atlas.findRegion("enemy");
+			sprite=atlas.findRegion("enemy");
 		}
 	}
 }
