@@ -67,8 +67,11 @@ public class RenderSystem implements SubSystem, Resizable{
 			float y = position.vector.y - sprite.sprite.getRegionHeight()/2;
 			batch.draw(sprite.sprite, x, y);
 		}
+		
 		if(debug){
-	        font.draw(batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, 0);  
+	        font.draw(batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, 0); 
+	        float accelX = Gdx.input.getAccelerometerX();
+	        font.draw(batch, " X: "+accelX, -100, -100);
 		}
 		batch.end();
 	}
@@ -127,6 +130,7 @@ public class RenderSystem implements SubSystem, Resizable{
           
         font = new BitmapFont();  
         font.setColor(Color.WHITE);  
+        font.setScale(2);
 	}
 
 	@Override
